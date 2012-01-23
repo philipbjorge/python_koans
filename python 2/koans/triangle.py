@@ -17,8 +17,17 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    "In: a,b,c = side length. Returns the type of triangle as string."
+    sides = sorted([a, b, c])
+    if sides[0] <= 0 or sum(sides[0:2]) <= sides[2]:
+      raise TriangleError()
+
+    result = "isosceles"
+    if len(set([a, b, c])) == 1:
+      result = "equilateral"
+    elif len(set([a, b, c])) == 3:
+      result = "scalene"
+    return result
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
